@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <style>
+    body {
+      background: linear-gradient(70deg, #5B247A, #1BCEDF);
+      background-size: cover;
+      height: 100vh;
+    }
+    .centered-body {
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 300px;
+      background-color: white;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      padding: 60px 40px;
+      border-radius: 25px;
+    }
+
+  select{
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+        -webkit-user-select: none;
+    -moz-user-select: none;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 325px;
+    color: #cccccc;
+    background-color: #393d41;
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    user-select: none;
+    -webkit-touch-callout: none;
+    border-radius: 0px;
+
+  }
+  option {
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+
+  }
+
+  </style>
+</head>
+<body>
+
+<div class="centered-body">
+<div>
+  <h1 id="output"></h1>
+</div>
+
+<h2>Select Your Protein Source</h2>
+<select id="source">
+  <option value="chicken">Chicken</option>
+  <option value="pork">Pork</option>
+  <option value="beef">Beef</option>
+  <option value="turkey">Turkey</option>
+  <option value="audi">Fish</option>
+</select>
+
+<h2>Enter In Ounces</h2>
+<input type="text" id="weight" placeholder="8">
+<span onclick="calculate()" class="addBtn">Enter</span>
+
+</div>
+<script>
+  function calculate() {
+    var weight = document.getElementById("weight").value;
+    console.log(weight);
+    var source = document.getElementById("source").value;
+    var total;
+
+    if (weight > 0) {
+
+      if (source == "Chicken" ) {
+        total = weight * 7.66;
+      } else if (source == "Pork" ) {
+        total = weight * 5.55;
+      } else if (source == "Beef" ) {
+        total = weight * 7.93;
+      } else if (source == "Turkey" ) {
+        total = weight * 5.61;
+      } else {
+        total = weight * 6.69;
+      }
+    } else {alert("Please Enter A Number");}
+
+
+  document.getElementById('output').innerHTML = total;
+}
+</script>
+
+</body>
+</html>
